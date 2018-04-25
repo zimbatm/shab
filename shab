@@ -2,7 +2,7 @@
 #
 # Evaluates a file with bash variable substitution.
 #
-# Usage: shab <template-file>
+# Usage: shab <template-file|->
 set -euo pipefail
 
 shab() {(
