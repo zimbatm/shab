@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Evaluates a file with bash variable substitution.
+#
+# Usage: shab <template-file>
+shab() {(
+    local id=${RANDOM}_${RANDOM}
+    local tmp=$(mktemp)
+    trap "rm $tmp" EXIT
+
+    (
+        echo "set -eu; cat <<TEMPLATE_CONTENT_$id"
+        cat "$1"
+        echo
+        echo "TEMPLATE_CONTENT_$id"
+    ) > "$tmp"
+
+    source "$tmp"
+)}
+
+# Works both as a sourced file or executable
+if [[ ${BASH_SOURCE[0]} == $0 ]]; then
+  shab "$@"
+fi

@@ -1,0 +1,9 @@
+Hello,
+
+this is a shab templating example.
+
+Usage: ./shab example.shab
+
+Your hostname: $(hostname)
+Your user: ${USER:-unknown}
+
