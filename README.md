@@ -13,6 +13,9 @@ $ wc -l shab
 24 shab
 ```
 
+**SECURITY WARNING**: only use templates that you trust! The template really does
+have all the power of a shell script.
+
 ## Example
 
 Input:
