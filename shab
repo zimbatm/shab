@@ -3,10 +3,13 @@
 # Evaluates a file with bash variable substitution.
 #
 # Usage: shab <template-file>
+set -euo pipefail
+
 shab() {(
     local id=${RANDOM}_${RANDOM}
-    local tmp=$(mktemp)
-    trap "rm $tmp" EXIT
+    local tmp=${TMPDIR:-/tmp}/shab.$id
+    trap 'rm -f $tmp' EXIT
+    set -o noclobber
 
     (
         echo "set -eu; cat <<TEMPLATE_CONTENT_$id"
@@ -19,6 +22,6 @@ shab() {(
 )}
 
 # Works both as a sourced file or executable
-if [[ ${BASH_SOURCE[0]} == $0 ]]; then
+if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
   shab "$@"
 fi

@@ -44,10 +44,16 @@ Your hostname: x1
 Your user: zimbatm
 ```
 
+## Template format
+
+Basically anything that bash can do.
+
+* [Variable expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+* Capture program outputs with `$(...)`
+
 ## Dependencies
 
 * bash
-* mktemp
 
 ## Related projects
 
