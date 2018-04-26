@@ -1,5 +1,7 @@
 # shab templating language
 
+[![Build Status](https://travis-ci.org/zimbatm/shab.svg?branch=master)](https://travis-ci.org/zimbatm/shab)
+
 One day, @roberth and @zimbatm were tired or manually replacing variables with
 sed. What if they could just drop variables in the file and have bash do the
 substitution for them? Get the full power of the bash variable expansion,
