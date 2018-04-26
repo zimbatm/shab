@@ -2,12 +2,12 @@
 #
 # Evaluates a file with bash variable substitution.
 #
-# Usage: shab <template-file|->
+# Usage: shab [template-file|-]
 set -euo pipefail
 
 shab() {(
   local id=${RANDOM}_${RANDOM}
-  eval "$(echo "set -eu; cat <<SHAB_$id"; cat "$1"; echo; echo "SHAB_$id")"
+  eval "$(echo "set -eu; cat <<SHAB_$id"; cat "${1:--}"; echo; echo "SHAB_$id")"
 )}
 
 # Works both as a sourced file or executable
