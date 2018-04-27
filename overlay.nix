@@ -2,7 +2,7 @@ self: super: {
 
   shab = super.callPackage ./shab.nix {};
 
-  runShab = name: parameters: shabScript:
+  runShab = name: shabScript: parameters:
     let extraParams = {
           inherit shabScript;
         };
