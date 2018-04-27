@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation {
   name = "shab";
-  src = ./.;
+  src = lib.sourceByRegex ./. ["^shab$" "^test.*"];
   postPatch = ''
     for f in test.sh test/*.sh; do
       patchShebangs "$f"
