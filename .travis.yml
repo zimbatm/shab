@@ -1,2 +1,3 @@
 ---
-script: ./test.sh
+language: nix
+script: nix-build
