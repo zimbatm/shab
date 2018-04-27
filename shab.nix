@@ -2,7 +2,6 @@
 
 stdenv.mkDerivation {
   name = "shab";
-  version = "1";
   src = ./.;
   postPatch = ''
     for f in test.sh test/*.sh; do
@@ -16,7 +15,7 @@ stdenv.mkDerivation {
   '';
   installPhase = ''
     mkdir -p $out/bin
-    cp ${./shab} $out/bin/shab
+    cp ./shab $out/bin/shab
   '';
   doInstallCheck = true;
   installCheckPhase = ''
