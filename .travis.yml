@@ -2,4 +2,5 @@
 language: nix
 script:
  - nix-build
+ - nix-build overlay-test.nix
  - ./test.sh
