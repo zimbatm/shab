@@ -46,6 +46,17 @@ Your hostname: x1
 Your user: zimbatm
 ```
 
+## Nix
+
+Of course you want to use this in your Nix expressions!
+
+```
+with import <nixpkgs> { overlays = [ (import ./overlay.nix) ]; };
+runShabText
+  "\${GREETING}\${TARGET:+, }\${TARGET}"
+  { GREETING = "Hello"; TARGET = "world"; }
+```
+
 ## Template format
 
 Basically anything that bash can do.
