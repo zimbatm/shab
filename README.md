@@ -62,3 +62,8 @@ Basically anything that bash can do.
 * envsubst from the gettext package
 * manually replacing variables with sed
 
+## Credits
+
+* The authors of the UNIX V7 shell
+* Richard Stallman, GNU, and bash maintainers for their reimplementation
+* Our source of inspiration, [Rube Goldberg](https://en.wikipedia.org/wiki/Rube_Goldberg)
