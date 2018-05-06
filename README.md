@@ -62,6 +62,22 @@ runShabText
   { GREETING = "Hello"; TARGET = "world"; }
 ```
 
+## Docker
+
+Use our minimal enterprise-ready docker images with only bash and shab:
+
+```
+$ cat example.shab | docker run -i --rm zimbatm/shab
+Hello,
+
+this is a shab templating example.
+
+Usage: ./shab example.shab
+
+Your hostname: 706d660042c4
+Your user: unknown
+```
+
 ## Template format
 
 Basically anything that bash can do.
