@@ -18,6 +18,11 @@ $ wc -l shab
 **SECURITY WARNING**: only use templates that you trust! The template really does
 have all the power of a shell script.
 
+## Use cases
+
+* Configure a minimal docker container application during boot
+* Fullfill a weird sense of minimalism and humour
+
 ## Example
 
 Input:
@@ -67,6 +72,7 @@ Basically anything that bash can do.
 ## Dependencies
 
 * bash
+* cat
 
 ## Related projects
 
