@@ -5,21 +5,15 @@
 # Usage: shab [template-file|-]
 set -euo pipefail
 
-if type cat &>/dev/null; then
-    dog() { cat "$@"; }
-else
-    dog() { # eponymously slow cat-polyfill hostile to nulls
-        [ ${#@} -ne 0 ] || set -- -
-        for fn; do
-            [ "$fn" != - ] || fn=/dev/stdin
-            while IFS= read -r line; do
-                printf "%s\n" "$line"
-            done <"$fn"
-            printf "%s" "$line"
-        done
-    }
-fi
-export -f dog
+dog() { # eponymously slow cat ersatz hostile to nulls
+    [[ "${1-}" != - ]] || set --
+    eval '
+    while IFS= read -r line; do
+        printf "%s\n" "$line"
+    done '${1+<"$1"}'
+    printf "%s" "$line"
+    '
+}
 shab() {(
   local id=${RANDOM}_${RANDOM}
   eval "$(echo "set -eu; dog <<SHAB_$id"; dog "${1:--}"; echo; echo "SHAB_$id")"
