@@ -93,6 +93,7 @@ Basically anything that bash can do.
 ## Related projects
 
 * envsubst from the gettext package
+* https://github.com/a8m/envsubst/ which is a go re-implementation of envsubst
 * manually replacing variables with sed
 
 ## Credits
