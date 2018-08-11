@@ -27,7 +27,7 @@ have all the power of a shell script.
 
 Input:
 ```
-$ cat example.sha
+$ cat example.shab
 Hello,
 
 this is a shab templating example.
