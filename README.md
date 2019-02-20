@@ -57,7 +57,7 @@ Of course you want to use this in your Nix expressions!
 
 ```
 with import <nixpkgs> { overlays = [ (import ./overlay.nix) ]; };
-runShabText
+shab.renderText
   "\${GREETING}\${TARGET:+, }\${TARGET}"
   { GREETING = "Hello"; TARGET = "world"; }
 ```
