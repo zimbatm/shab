@@ -10,12 +10,13 @@ workflow "Build and test" {
 action "Nix build" {
   uses = "docker://nixpkgs/nix:latest"
   runs = "nix-build"
+  args = ["--option", "sandbox", "false"]
 }
 
 action "Nix overlay" {
   uses = "docker://nixpkgs/nix:latest"
   runs = "nix-build"
-  args = ["overlay-test.nix"]
+  args = ["overlay-test.nix", "--option", "sandbox", "false"]
 }
 
 action "Run tests" {
