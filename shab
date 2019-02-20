@@ -5,7 +5,8 @@
 # Usage: shab [template-file|-]
 set -euo pipefail
 
-dog() { # eponymously slow cat ersatz hostile to nulls
+# eponymously slow cat ersatz hostile to nulls
+dog() {
     [[ "${1-}" != - ]] || set --
     eval '
     while IFS= read -r line; do
@@ -14,9 +15,14 @@ dog() { # eponymously slow cat ersatz hostile to nulls
     printf "%s" "$line"
     '
 }
+
+if ! type -P cat &>/dev/null; then
+  alias cat=dog
+fi
+
 shab() {(
   local id=${RANDOM}_${RANDOM}
-  eval "$(echo "set -eu; dog <<SHAB_$id"; dog "${1:--}"; echo; echo "SHAB_$id")"
+  eval "$(echo "set -eu; cat <<SHAB_$id"; cat "${1:--}"; echo; echo "SHAB_$id")"
 )}
 
 # Works both as a sourced file or executable
