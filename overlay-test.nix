@@ -2,11 +2,11 @@
 let
   pkgs = import <nixpkgs> { overlays = [ (import ./overlay.nix) ]; };
 
-  shabExample = pkgs.runShab (pkgs.writeText "tpl" ''
+  shabExample = pkgs.shab.render (pkgs.writeText "tpl" ''
     foo $hello bar
   '') { hello = 123; } ;
 
-  shabTextExample = pkgs.runShabText ''
+  shabTextExample = pkgs.shab.renderText ''
     foo $hello bar
   '' { hello = 123; } ;
 
