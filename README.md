@@ -95,6 +95,8 @@ Basically anything that bash can do.
 * envsubst from the gettext package
 * https://github.com/a8m/envsubst/ which is a go re-implementation of envsubst
 * manually replacing variables with sed
+* https://github.com/jirutka/esh - 160 LoC POSIX-sh and awk templating
+  language
 
 ## Credits
 
