@@ -2,6 +2,8 @@
 #
 # Evaluates a file with bash variable substitution.
 #
+# Version: 1.0.0
+#
 # Usage: shab [template-file|-]
 set -euo pipefail
 
