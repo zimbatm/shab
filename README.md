@@ -97,6 +97,8 @@ Basically anything that bash can do.
 * manually replacing variables with sed
 * https://github.com/jirutka/esh - 160 LoC POSIX-sh and awk templating
   language
+* https://github.com/dylanaraps/pure-bash-bible - a fun read about
+  implementing everything in pure bash
 
 ## Credits
 
