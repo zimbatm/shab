@@ -12,10 +12,10 @@ dog() (
   if [[ $1 = - ]]; then
     exec 3<&0
   else
-    exec 3< "$1"
+    exec 3<"$1"
   fi
-  while read -ru 3; do
-    echo -E "$REPLY"
+  while IFS= read -ru 3; do
+    printf "%s\n" "$REPLY"
   done
 )
 
