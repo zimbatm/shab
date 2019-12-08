@@ -9,13 +9,14 @@ set -euo pipefail
 
 # eponymously slow cat ersatz hostile to nulls
 dog() {
-    [[ "${1-}" != - ]] || set --
-    eval '
-    while IFS= read -r line; do
-        printf "%s\n" "$line"
-    done '${1+<"$1"}'
-    printf "%s" "$line"
-    '
+  if [[ $1 = - ]]; then
+    exec 3<&0
+  else
+    exec 3< "$1"
+  fi
+  while read -ru 3; do
+    echo -E "$REPLY"
+  done
 }
 
 if ! type -P cat &>/dev/null; then
