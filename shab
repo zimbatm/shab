@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # eponymously slow cat ersatz hostile to nulls
-dog() {
+dog() (
   if [[ $1 = - ]]; then
     exec 3<&0
   else
@@ -17,16 +17,16 @@ dog() {
   while read -ru 3; do
     echo -E "$REPLY"
   done
-}
+)
 
 if ! type -P cat &>/dev/null; then
   alias cat=dog
 fi
 
-shab() {(
+shab() (
   local id=${RANDOM}_${RANDOM}
   eval "$(echo "set -eu; cat <<SHAB_$id"; cat "${1:--}"; echo; echo "SHAB_$id")"
-)}
+)
 
 # Works both as a sourced file or executable
 if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
