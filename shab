@@ -7,7 +7,7 @@
 # Usage: shab [template-file|-]
 set -euo pipefail
 
-# eponymously slow cat ersatz hostile to nulls
+# eponymously slow cat ersatz hostile to NUL bytes
 dog() (
   if [[ $1 = - ]]; then
     exec 3<&0
