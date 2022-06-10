@@ -85,6 +85,10 @@ Basically anything that bash can do.
 * [Variable expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 * Capture program outputs with `$(...)`
 
+## Known issues
+
+* Shab always adds a newline to the input file. See [#15](https://github.com/zimbatm/shab/issues/15).
+
 ## Dependencies
 
 * bash
